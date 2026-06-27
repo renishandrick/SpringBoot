@@ -12,7 +12,7 @@ public class trackerController {
     private trackerService ts;
     @GetMapping("/get")
     String tracker(){
-        ts.printOf();
+
         return "tracking";
     }
 }

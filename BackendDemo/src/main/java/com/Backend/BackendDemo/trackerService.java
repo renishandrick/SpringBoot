@@ -1,5 +1,5 @@
 package com.Backend.BackendDemo;
-
+import com.Backend.BackendDemo.entites.tracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class trackerService {
     @Autowired
     private trackerRepository tr;
-    public void printOf(){
-        System.out.print(tr.track());
+    public tracker createTracker(tracker t){
+        return tr.save(t);
     }
 }
