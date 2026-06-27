@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 
-@RequestMapping("/track")
+@RequestMapping("/tracking")
 
 public class tracker {
     @GetMapping("/id/{id}")
