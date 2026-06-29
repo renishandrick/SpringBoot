@@ -19,6 +19,6 @@ public class tracker {
     String batch;
     @Email
     String email;
-    @Pattern(regexp  = "^[6-9]\\d{9}$")
+    @Pattern(regexp = "^[6-9]\\d{9}$")
     String mobile;
 }
