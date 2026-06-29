@@ -1,13 +1,13 @@
 package com.Backend.BackendDemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.Backend.BackendDemo.entites.tracker;
 
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/track")
@@ -33,5 +33,9 @@ public class trackerController {
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable int id){
         return ts.deleteTracker(id);
+    }
+    @GetMapping("/page")
+    public Page<tracker> getAllPages(@RequestParam int page, @RequestParam int size){
+        return ts.getAllTrackerPages(page, size);
     }
 }
