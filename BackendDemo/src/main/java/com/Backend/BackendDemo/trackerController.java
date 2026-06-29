@@ -1,5 +1,5 @@
 package com.Backend.BackendDemo;
-
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ public class trackerController {
     @Autowired
     private trackerService ts;
     @PostMapping("/create")
-    ResponseEntity createUser (@RequestBody tracker t){
+    ResponseEntity createUser (@Valid @RequestBody tracker t){
         return new ResponseEntity<>(ts.createTracker(t), HttpStatus.CREATED);
     }
     @GetMapping("/all")
