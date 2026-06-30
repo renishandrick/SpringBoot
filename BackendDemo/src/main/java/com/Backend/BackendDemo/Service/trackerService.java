@@ -13,8 +13,13 @@ import java.util.List;
 public class trackerService {
     @Autowired
     private trackerRepository tr;
+    @Autowired
+    private mailServices mailService;
+
     public tracker createTracker(tracker t){
-        return tr.save(t);
+        tracker track= tr.save(t);
+        mailService.sendMail(track.getEmail());
+        return track;
     }
     public List<tracker> getAllTrackers(){
         return tr.findAll();
@@ -32,5 +37,10 @@ public class trackerService {
     public Page<tracker> getAllTrackerPages(int page, int size){
         Pageable pg= PageRequest.of(page,size);
         return tr.findAll(pg);
+    }
+    public String forgotPassword(String email){
+        tracker track=tr.findByEmail(email).orElseThrow(()-> new trackerNotFoundException("Email not found"));
+        mailService.sendOTP(email);
+        return "OTP sent successfully";
     }
 }

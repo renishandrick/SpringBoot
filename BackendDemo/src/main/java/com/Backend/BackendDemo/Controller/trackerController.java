@@ -39,4 +39,8 @@ public class trackerController {
     public Page<tracker> getAllPages(@RequestParam int page, @RequestParam int size){
         return ts.getAllTrackerPages(page, size);
     }
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestParam String email){
+        return ResponseEntity.ok(ts.forgotPassword(email));
+    }
 }
