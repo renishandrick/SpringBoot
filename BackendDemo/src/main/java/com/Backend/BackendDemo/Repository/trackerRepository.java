@@ -1,4 +1,4 @@
-package com.Backend.BackendDemo;
+package com.Backend.BackendDemo.Repository;
 
 import com.Backend.BackendDemo.entites.tracker;
 import org.springframework.data.jpa.repository.JpaRepository;

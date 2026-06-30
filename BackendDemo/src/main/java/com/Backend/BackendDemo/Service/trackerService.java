@@ -1,4 +1,6 @@
-package com.Backend.BackendDemo;
+package com.Backend.BackendDemo.Service;
+import com.Backend.BackendDemo.Exception.trackerNotFoundException;
+import com.Backend.BackendDemo.Repository.trackerRepository;
 import com.Backend.BackendDemo.entites.tracker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,7 +20,7 @@ public class trackerService {
         return tr.findAll();
     }
     public tracker getTracker(int id){
-        return tr.findById(id).orElse(null);
+        return tr.findById(id).orElseThrow(()-> new trackerNotFoundException("Tracker with id "+id+" not found"));
     }
     public tracker updateTracker(tracker t){
         return tr.save(t);
